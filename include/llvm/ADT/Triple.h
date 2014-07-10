@@ -44,7 +44,10 @@ public:
     UnknownArch,
 
     arm,     // ARM; arm, armv.*, xscale
-    cellspu, // CellSPU: spu, cellspu
+#if defined(PVR_RSC)
+	usc,     // USC: powervr
+#endif
+	cellspu, // CellSPU: spu, cellspu
     hexagon, // Hexagon: hexagon
     mips,    // MIPS: mips, mipsallegrex
     mipsel,  // MIPSEL: mipsel, mipsallegrexel
@@ -73,7 +76,10 @@ public:
     Apple,
     PC,
     SCEI,
-    BGP,
+#if defined(PVR_RSC)
+	IMG,
+#endif
+	BGP,
     BGQ,
     Freescale
   };
@@ -110,6 +116,9 @@ public:
     GNUEABIHF,
     EABI,
     MachO,
+#if defined(PVR_RSC)
+	POWERVR,
+#endif
     Android
   };
 

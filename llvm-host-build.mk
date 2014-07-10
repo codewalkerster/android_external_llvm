@@ -11,6 +11,10 @@ LOCAL_CFLAGS :=	\
 	-Wwrite-strings	\
 	$(LOCAL_CFLAGS)
 
+ifeq ($(BOARD_USES_PVR_RSC),true)
+	LOCAL_CFLAGS += -DPVR_RSC
+endif
+
 ifeq ($(LLVM_ENABLE_ASSERTION),true)
 LOCAL_CFLAGS :=	\
 	$(LOCAL_CFLAGS) \

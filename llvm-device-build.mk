@@ -11,6 +11,11 @@ LOCAL_CFLAGS :=	\
 	-Wwrite-strings	\
 	$(LOCAL_CFLAGS)
 
+ifeq ($(BOARD_USES_PVR_RSC),true)
+	LOCAL_CFLAGS += -DPVR_RSC
+endif
+
+
 # The three inline options together reduce libbcc.so almost 1MB.
 # We move them from global build/core/combo/TARGET_linux-arm.mk
 # to here.
